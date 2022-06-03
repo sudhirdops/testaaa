@@ -49,10 +49,10 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: sfdx force://3MVG9wt4IL4O5wvI1iJzo..8HMcG.Z_.IriaQVo9l1DME6BdDNfOXSx5.Rr46TPoWiz4rUaB1lwIgbmIAPOMk:06CEB40B053F71D4E340F1C56F9129B0BD7D26C1F16DB7F7FE0BF91CCCE93840:opKt5G4d3NnqYeOqNS8tuMPMQ@https://abc108--aaadeploy.lightning.force.com/lightning/page/home -f ./SFDX_PRODUCTION_URL.txt -s -a production
-             
+              run: run:sfdx force://3MVG9wt4IL4O5wvIdKgVtYLk19orN2liCvySEvXQjzzdas24djQTuzTLkBhODkoXkW_mcZqNFrX8_KEb.teR:AD3A70AA71163015A25FAACAE9BA8BDF5AB999B4DF7967660E5B62F3623A9E43:GcKVF6UQv6jnccxK2fS1MnzB@https://login.salesforce.com/services/oauth2/success -f ./SFDX_PRODUCTION_URL.txt -s -a production
+              
             - name: 'Deploy the entire branch to Production org'
-              run: sfdx force:source:deploy -m ApexClass -u dopssudhir@salesforcedev.com
+              run: sfdx force:source:deploy -m ApexClass -u dopssudhir
 
             ##- name: 'Deploy destructive changes (if any) to Production org'
               ##run: sfdx force:mdapi:deploy -d -u dopssudhir@salesforcedev.com "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
