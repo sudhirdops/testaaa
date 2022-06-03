@@ -52,7 +52,7 @@ jobs:
               run: sfdx force://3MVG9wt4IL4O5wvIdKgVtYLk19orN2liCvySEvXQjzzdas24djQTuzTLkBhODkoXkW_mcZqNFrX8_KEb.teR:AD3A70AA71163015A25FAACAE9BA8BDF5AB999B4DF7967660E5B62F3623A9E43:GcKVF6UQv6jnccxK2fS1MnzB@https://login.salesforce.com/services/oauth2/success -f ./SFDX_PRODUCTION_URL.txt -s -a production
               
             - name: 'Deploy the entire branch to Production org'
-              run: Run sfdx force:'force-app/**':https://d5i000003m3nheac-dev-ed.my.salesforce.com/ -p force-app -u dopssudhir@salesforcedev.com  --testlevel RunLocalTests --json
+              run: sfdx force:'force-app/**':https://d5i000003m3nheac-dev-ed.my.salesforce.com/ -p force-app -u dopssudhir@salesforcedev.com  --testlevel RunLocalTests --json
 
             ##- name: 'Deploy destructive changes (if any) to Production org'
               ##run: sfdx force:mdapi:deploy -d -u dopssudhir@salesforcedev.com "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
