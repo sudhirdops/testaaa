@@ -52,7 +52,7 @@ jobs:
               run: sfdx force://3MVG9wt4IL4O5wvI1iJzo..8HMcG.Z_.IriaQVo9l1DME6BdDNfOXSx5.Rr46TPoWiz4rUaB1lwIgbmIAPOMk:06CEB40B053F71D4E340F1C56F9129B0BD7D26C1F16DB7F7FE0BF91CCCE93840:opKt5G4d3NnqYeOqNS8tuMPMQ@https://abc108--aaadeploy.lightning.force.com/lightning/page/home -f ./SFDX_PRODUCTION_URL.txt -s -a production
              
             - name: 'Deploy the entire branch to Production org'
-              run: sfdx force:lightning:component:create -n mycomponent
+              run: sfdx force:lightning:app:create -n myapp
 
             ##- name: 'Deploy destructive changes (if any) to Production org'
               ##run: sfdx force:mdapi:deploy -d -u sudhirbds-xljp@force.com.aaadeploy "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
