@@ -54,5 +54,5 @@ jobs:
             - name: 'Deploy the entire branch to Production org'
               run: sfdx force:'force-app/**':https://abc108--aaadeploy.lightning.force.com/lightning/page/home  -p force-app -u sudhirbds-xljp@force.com.aaadeploy  --testlevel RunLocalTests --json
 
-            - name: 'Deploy destructive changes (if any) to Production org'
-              run: sfdx force:mdapi:deploy -d -u sudhirbds-xljp@force.com.aaadeploy "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
+            ##- name: 'Deploy destructive changes (if any) to Production org'
+              ##run: sfdx force:mdapi:deploy -d -u sudhirbds-xljp@force.com.aaadeploy "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
