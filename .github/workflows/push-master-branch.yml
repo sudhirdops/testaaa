@@ -49,10 +49,10 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: sfdx force://3MVG9wt4IL4O5wvI1iJzo..8HMWNJpcSBj1o9DzHetydPkCzpw_Lmo1MYhgb07OWSkt6Ey1X947xEgeXoAmHB:78E0A6F0EF50043299BC03E4CD407C613997986EDD82BF9BA50C5E312C5BEA94:6Cel800D5i000003Moxk8885i000000oj7QTlNH6CKuE0rIkK6R3eYX3EvWCVrOPKvBduyPe9UGezsFea5PESxq6Uu1skMNcCexHUMhRY7S@https://login.salesforce.com/ -f./ SFDX_PRODUCTION_URL.txt -s -a production
+              run: sfdx force://3MVG9wt4IL4O5wvIdKgVtYLk19orN2liCvySEvXQjzzdas24djQTuzTLkBhODkoXkW_mcZqNFrX8_KEb.teRK:B45F133C9093F395FE7C76B0476DFB1F0A271D0473455E1E974D5A5A7C8BDA6B:6Cel800D5i000003M3nh8885i000000kUZhVY21k9mTFVf3M3dLhW0ZZ1pkX8YW85HtFkkefVJt2WmSJBQogvIVZ0n8niQlZyLVbwFdU8LE@https://login.salesforce.com/ -f./ SFDX_PRODUCTION_URL.txt -s -a production
               
             - name: 'Authentication of the account'
-              run: sfdx config:set defaultusername=sudhirbds-xljp@force.com
+              run: sfdx config:set defaultusername=dopssudhir@salesforcedev.com
           
               
             - name: 'Deploy the entire branch to Production org'
