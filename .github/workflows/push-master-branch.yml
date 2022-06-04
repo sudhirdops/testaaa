@@ -49,7 +49,7 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: sfdx force://https://abc108.lightning.force.com/:store -f ./SFDX_PRODUCTION_URL.txt -s -a production
+              run: sfdx force://3MVG9wt4IL4O5wvI1iJzo..8HMWNJpcSBj1o9DzHetydPkCzpw_Lmo1MYhgb07OWSkt6Ey1X947xEgeXoAmHB: 78E0A6F0EF50043299BC03E4CD407C613997986EDD82BF9BA50C5E312C5BEA94:6Cel800D5i000003Moxk8885i000000oj7QTlNH6CKuE0rIkK6R3eYX3EvWCVrOPKvBduyPe9UGezsFea5PESxq6Uu1skMNcCexHUMhRY7S@https://login.salesforce.com/ -f./ SFDX_PRODUCTION_URL.txt -s -a production
               
             - name: 'Authentication of the account'
               run: sfdx config:set defaultusername=sudhirbds-xljp@force.com
