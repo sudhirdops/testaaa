@@ -52,7 +52,8 @@ jobs:
               run: sfdx force://3MVG9wt4IL4O5wvIdKgVtYLk19orN2liCvySEvXQjzzdas24djQTuzTLkBhODkoXkW_mcZqNFrX8_KEb.teR:AD3A70AA71163015A25FAACAE9BA8BDF5AB999B4DF7967660E5B62F3623A9E43:GcKVF6UQv6jnccxK2fS1MnzB@https://login.salesforce.com/services/oauth2/success -f ./SFDX_PRODUCTION_URL.txt -s -a production
               
             - name: 'Authentication of the account'
-              run: sfdx config:set defaultusername='sudhirbds-xljp@force.com'
+              run: sfdx config:set defaultusername=sudhirbds-xljp@force.com
+          
               
             - name: 'Deploy the entire branch to Production org'
               run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
