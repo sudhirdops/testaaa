@@ -54,7 +54,7 @@ jobs:
           
               
             - name: 'Deploy the entire branch to Production org'
-              run: sfdx force:source:deploy -p --manifest manifest/package.xml
+              run: sfdx force:source:deploy --manifest manifest/package.xml
          
               
               ##- name: 'Deploy destructive changes (if any) to Production org'
