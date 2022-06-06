@@ -54,7 +54,7 @@ jobs:
           
               
             - name: 'Deploy the entire branch to Production org'
-              run: Sfdx force:source:deploy -m ApexClass
+              run: force:source:deploy manifest
          
               
               ##- name: 'Deploy destructive changes (if any) to Production org'
