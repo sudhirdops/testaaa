@@ -49,9 +49,7 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: |
-                   sfdx force:org:display -u dopssudhir@salesforcedev.com --verbose --json > authFile.json
-                   sfdx auth:sfdxurl:store -f sfdxurl.txt
+              run: sfdx auth:sfdxurl:store -f sfdxurl.txt
             
           
               
