@@ -52,7 +52,7 @@ jobs:
               run: sfdx auth:sfdxurl:store -f ./SFDX_PRODUCTION_URL.txt -s -a testapp
               
             - name: 'Deploy the entire branch to Production org'
-              run: sfdx force:source:deploy -x manifest/package.xml
+              run: force:source:deploy --manifest manifest/package.xml
          
               
               ##- name: 'Deploy destructive changes (if any) to Production org'
