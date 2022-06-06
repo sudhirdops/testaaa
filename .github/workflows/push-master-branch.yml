@@ -49,14 +49,14 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: sfdx force://3MVG9wt4IL4O5wvIdKgVtYLk19orN2liCvySEvXQjzzdas24djQTuzTLkBhODkoXkW_mcZqNFrX8_KEb.teRK:B45F133C9093F395FE7C76B0476DFB1F0A271D0473455E1E974D5A5A7C8BDA6B:6Cel800D5i000003M3nh8885i000000kUZhVY21k9mTFVf3M3dLhW0ZZ1pkX8YW85HtFkkefVJt2WmSJBQogvIVZ0n8niQlZyLVbwFdU8LE@https://login.salesforce.com/ -f./ SFDX_PRODUCTION_URL.txt -s -a production
-              
-            - name: 'Authentication of the account'
-              run: sfdx config:set defaultusername=dopssudhir@salesforcedev.com
+              run: |
+                   sfdx force:org:display -u dopssudhir@salesforcedev.com --verbose --json > authFile.json
+                   sfdx auth:sfdxurl:store -f sfdxurl.txt
+            
           
               
             - name: 'Deploy the entire branch to Production org'
-              run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
+              run: Sfdx force:source:deploy --manifest manifest/package.xml
          
               
               ##- name: 'Deploy destructive changes (if any) to Production org'
