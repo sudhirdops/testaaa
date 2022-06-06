@@ -49,10 +49,10 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: sfdx auth:sfdxurl:store -f ./SFDX_PRODUCTION_URL.txt -s -a testapp
+              run: auth:sfdxurl:store -f ./SFDX_PRODUCTION_URL.txt -s -a testapp force:auth:jwt:grant --clientid ${{ secrets.RAHUL_FORCE_CONSUMER_KEY }} --jwtkeyfile certificates/server.key --username ${{ secrets.RAHUL_FORCE_USER_NAME }} --setdefaultusernam
               
             - name: 'Deploy the entire branch to Production org'
-              run: force:source:deploy --manifest manifest/package.xml
+              run: sfdx force:source:deploy --manifest manifest/package.xml 
          
               
               ##- name: 'Deploy destructive changes (if any) to Production org'
