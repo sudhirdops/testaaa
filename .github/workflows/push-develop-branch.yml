@@ -4,7 +4,7 @@ name: Deploy integration branch to integration and staging/uat orgs
 # Definition when the workflow should run
 on:
     push:
-      branches: [ integration ]
+      branches: [ develop ]
       paths:
         - 'force-app/**'
             
@@ -50,7 +50,7 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Integration Org'
-              run: sfdx auth:sfdxurl:store -f ./SFDX_INTEGRATION_URL.txt -s -a integration
+              run: sfdx auth:sfdxurl:store -f sfdxurl.txt
 
             - name: 'Deploy the entire branch to Integration org'
               run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
@@ -60,7 +60,7 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Staging Org to Staging org'
-              run: sfdx auth:sfdxurl:store -f ./SFDX_STAGING_URL.txt -s -a staging
+              run:  sfdx auth:sfdxurl:store -f sfdxurl.txt
 
             - name: 'Deploy the entire branch'
               run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
