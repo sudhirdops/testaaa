@@ -18,6 +18,7 @@ jobs:
           sfdx-auth-url: ${{ secrets.AUTH_SECRET }}
       - name: "install app and create delta"
         run: |
+         npm install -g npm@8.12.1
          sudo npm install sfdx-git-delta@latest -g
          git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*
          git fetch --all
