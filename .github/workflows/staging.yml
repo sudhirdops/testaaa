@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+  # This is a basic workflow to help you get started with Actions
 
 name: CI
 
@@ -18,13 +18,17 @@ jobs:
           sfdx-auth-url: ${{ secrets.AUTH_SECRET }}
       - name: "install app and create delta"
         run: |
+         npm install -g npm@8.12.1
          sudo npm install sfdx-git-delta@latest -g
-         git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*
+         sfdx plugins:install sfdx-git-delta
+         git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
          git fetch --all
-         git --no pager diff --name-status staging origin/master
-         sgd --to pr --from origin/master --repo . --output .
+         git --no-pager diff --name-status staging origin/master
+         sfdx sgd --to staging --from origin/master --repo . --output .
          cat package/package.xml
       - name: 'Convert Metadata'
         run: sfdx force:source:convert --manifest=package/package.xml --outputdir=convert
+      - name: 'Authenticate to Production Org'
+        run: sfdx auth:sfdxurl:store -f sfdxurl.txt
       - name: 'Run Test on Metadata'
-        run: sfdx force:mdapi:deploy --deploydir=convert -w 30
+        run: sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30
