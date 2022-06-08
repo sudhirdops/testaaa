@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+  # This is a basic workflow to help you get started with Actions
 
 name: CI
 
@@ -19,10 +19,10 @@ jobs:
       - name: "install app and create delta"
         run: |
          sudo npm install sfdx-git-delta@latest -g
-         git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*
+         git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
          git fetch --all
          git --no pager diff --name-status staging origin/master
-         sgd --to pr --from origin/master --repo . --output .
+         sgd --to staging --from origin/master --repo . --output .
          cat package/package.xml
       - name: 'Convert Metadata'
         run: sfdx force:source:convert --manifest=package/package.xml --outputdir=convert
