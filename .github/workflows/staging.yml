@@ -28,5 +28,8 @@ jobs:
          cat package/package.xml
       - name: 'Convert Metadata'
         run: sfdx force:source:convert --manifest=package/package.xml --outputdir=convert
+         Authenticate to org
+      - name: 'Authenticate to Production Org'
+        run: sfdx auth:sfdxurl:store -f sfdxurl.txt
       - name: 'Run Test on Metadata'
         run: sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30
