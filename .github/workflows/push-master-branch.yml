@@ -6,7 +6,8 @@ on:
     push:
       branches: [ main ]
       paths:
-        - 'force-app/**'
+        #- 'force-app/**'
+        -  'force-app/main/default/classes/**'
             
 
 # Jobs to be executed
@@ -54,8 +55,8 @@ jobs:
           
               
             - name: 'Deploy the entire branch to Production org'
-              run: sfdx force:source:deploy -u dopssudhir@salesforcedev.com --manifest manifest/package.xml
-         
+             # run: sfdx force:source:deploy -u dopssudhir@salesforcedev.com --manifest manifest/package.xml
+              run:  sfdx force:source:push  -p force-app -u sudhirbds-xljp@force.com.aaadeploy  --testlevel RunLocalTests --json
               
               ##- name: 'Deploy destructive changes (if any) to Production org'
               ##run: sfdx force:mdapi:deploy -d -u dopssudhir@salesforcedev.com "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
