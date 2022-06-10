@@ -8,12 +8,7 @@
 public with sharing class CheckGitprocess {
     public int i=0;
     public CheckGitprocess() {
-        try {
-            // empty !
             i++;
-
-          } catch (Exception e) {
-              e.printStackTrace();
           }
     }
 }
