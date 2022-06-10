@@ -58,7 +58,7 @@ jobs:
             - name: 'Deploy Data to Production org'
              # run:  sfdx force:source:deploy -u dopssudhir@salesforcedev.com --manifest manifest/package.xml
              # run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --json
-              run:  sfdx force:mdapi:deploy -u dopssudhir@salesforce.com --deploydir=convert -w 30
+              run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30
               
               ##- name: 'Deploy destructive changes (if any) to Production org'
               ##run: sfdx force:mdapi:deploy -d -u dopssudhir@salesforcedev.com "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
