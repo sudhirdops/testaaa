@@ -1,5 +1,5 @@
 /**
- * An apex page aa controller that exposes the change password functionality Testing
+ * An apex page aa controller that exposes the change password 
  **/ 
 public with sharing class ChangePasswordController {
     public String oldPassword {get; set;}
