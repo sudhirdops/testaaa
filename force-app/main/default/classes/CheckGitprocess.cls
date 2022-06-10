@@ -6,7 +6,14 @@
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class CheckGitprocess {
+    public int i=0;
     public CheckGitprocess() {
- //testing
+        try {
+            // empty !
+            i++;
+
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
     }
 }
