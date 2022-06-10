@@ -8,6 +8,7 @@
 public with sharing class CheckGitprocess {
     public int i=0;
     public CheckGitprocess() {
+        //testing the changes
             i++;
           }
     }
