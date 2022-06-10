@@ -1,0 +1,27 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-08-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-tabset></lightning-tabset>
+    <div class="slds-card">
+        <template if:true={markers.length}>
+            <lightning-map
+                map-markers={markers}
+                zoom-level={zoomLevel}
+            ></lightning-map>
+        </template>
+        <template if:false={markers.length}>
+            <c-error-panel friendly-message="No address to map"></c-error-panel>
+        </template>
+        <template if:true={error}>
+            <c-error-panel
+                friendly-message="Error retrieving map data"
+                errors={error}
+            ></c-error-panel>
+        </template>
+    </div>
+</template>
