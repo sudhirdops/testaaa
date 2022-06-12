@@ -6,10 +6,11 @@
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class CheckGitprocess {
-    public int i=0;
+    public int j=0;
     public CheckGitprocess() {
-            i++;
+            j++;
+
           }
     }
 }
-//
+// testing this apex class
