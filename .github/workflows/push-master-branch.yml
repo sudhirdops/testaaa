@@ -47,7 +47,7 @@ jobs:
             - name: 'Create delta packages for new, modified or deleted metadata'
               run: | 
                   mkdir changed-sources
-                  sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/
+                  sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output changed-sources/ --generate-delta --source force-app/
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
@@ -56,9 +56,11 @@ jobs:
           
               
             - name: 'Deploy Data to Production org'
-            #run:  sfdx force:source:deploy -u dopssudhir@salesforcedev.com --manifest manifest/package.xml
+             # this will deploy whole metadata in classes file
+             #run:  sfdx force:source:deploy -u dopssudhir@salesforcedev.com --manifest manifest/package.xml
+             ## error in deployment
              #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --json
-              #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30 
+             #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30 
               run: sfdx force:mdapi:deploy -d convert/ -w 100 -u dopssudhir@salesforcedev.com -g
             #- name: 'Deploy destructive changes (if any) to Production org'
              # run: sfdx force:mdapi:deploy -d -u dopssudhir@salesforcedev.com "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
