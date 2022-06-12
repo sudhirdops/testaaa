@@ -59,7 +59,7 @@ jobs:
              ## error in deployment
              #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --json
              #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30 
-              run: sfdx force:source:deploy -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml
+              run: sfdx force:source:deploy -u dopssudhir@salesforcedev.com -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml
              # run: sfdx force:mdapi:deploy -d convert/ -w 100 -u dopssudhir@salesforcedev.com -g
             #- name: 'Deploy destructive changes (if any) to Production org'
              # run: sfdx force:mdapi:deploy -d -u dopssudhir@salesforcedev.com "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
