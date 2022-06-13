@@ -1,18 +1,19 @@
 # Unique name for this workflow
-name: Deploy integration branch to integration and staging/uat orgs
+name: Deploy lwc changes 
 
 # Definition when the workflow should run
 on:
     push:
-      branches: [ integration ]
+      branches: [ staging ]
       paths:
         - 'force-app/**'
-        - 'force-app/main/default/lwc/**'
+       # - 'force-app/main/default/lwc/**'
+  
             
 
 # Jobs to be executed
 jobs:
-    deploy-branch-to-int-and-staging-orgs:
+    deploy-branch-to-production-org:
         runs-on: ubuntu-latest
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
@@ -35,32 +36,25 @@ jobs:
               with:
                 fetch-depth: 0
 
-            # Store secret for both otgs
+            # Store secret for production org
             - name: 'Populate auth file with SFDX_URL secret of the integration and staging orgs'
               shell: bash
               run: |
-                  echo ${{ secrets.SFDX_INTEGRATION_URL}} > ./SFDX_INTEGRATION_URL.txt
-                  echo ${{ secrets.SFDX_STAGING_URL}} > ./SFDX_STAGING_URL.txt
-            - name: 'Create delta packages for new, modified or deleted metadata'
-              run: | 
-                  mkdir changed-sources
-                  sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/main/default/lwc/
+                  echo ${{ secrets.SFDX_PRODUCTION_URL}} > ./SFDX_PRODUCTION_URL.txt
+            #- name: 'Create delta packages for new, modified or deleted metadata'
+             # run:  sfdx sgd:source:delta --to HEAD --from HEAD~1 --output .
             # Authenticate to org
-            - name: 'Authenticate to Integration Org'
-              run: sfdx auth:sfdxurl:store -f sfdxurl.txt
-
-            - name: 'Deploy the entire branch to Integration org'
-              run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
-
-            - name: 'Deploy destructive changes (if any) to Integration org'
-              run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
-
-            # Authenticate to org
-            - name: 'Authenticate to Staging Org to Staging org'
-              run: sfdx auth:sfdxurl:store -f ./SFDX_STAGING_URL.txt -s -a staging
-
-            - name: 'Deploy the entire branch'
-              run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
-
-            - name: 'Deploy destructive changes (if any) to Staging org'
-              run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
+            - name: 'Authenticate to Production Org'
+              run: sfdx auth:sfdxurl:store -f ./SFDX_PRODUCTION_URL.txt
+           # Deploy to Prod
+            - name: 'Deploy Data to Production org'
+             # this will deploy whole metadata in classes file
+              run:  sfdx force:source:deploy -u dopssudhir@salesforcedev.com --manifest manifest/package.xml
+             ## error in deployment
+             #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --json
+             #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30 
+             #This will deploy Delta changes
+             # run: sfdx force:source:deploy -u dopssudhir@salesforcedev.com -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml
+             # run: sfdx force:mdapi:deploy -d convert/ -w 100 -u dopssudhir@salesforcedev.com -g
+            #- name: 'Deploy destructive changes (if any) to Production org'
+             # run: sfdx force:mdapi:deploy -d -u dopssudhir@salesforcedev.com "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
