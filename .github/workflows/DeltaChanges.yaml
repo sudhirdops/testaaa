@@ -12,7 +12,7 @@ on:
 jobs:
     deploy-branch-to-production-org:
         runs-on: ubuntu-latest
-        if: contains(steps.changed-files.outputs.modified_files, 'force-app/main/default/classes')
+        if: ${{ github.actor != 'dependabot[bot]' }} 
         steps:
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
