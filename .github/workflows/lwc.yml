@@ -45,7 +45,7 @@ jobs:
              # run:  sfdx sgd:source:delta --to HEAD --from HEAD~1 --output .
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: sfdx auth:sfdxurl:store -f ./SFDX_PRODUCTION_URL.txt
+              run: sfdx auth:sfdxurl:store -f sfdxurl.txt
            # Deploy to Prod
             - name: 'Deploy Data to Production org'
              # this will deploy whole metadata in classes file
