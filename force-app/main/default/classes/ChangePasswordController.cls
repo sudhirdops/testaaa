@@ -1,7 +1,7 @@
 /**
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
- * @group             : Testing changes 15
+ * @group             : Testing changes
  * @last modified on  : 06-13-2022
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
@@ -11,7 +11,7 @@ public with sharing class ChangePasswordController {
     public String verifyNewPassword {get; set;}        
     
     public PageReference changePassword() {
-     System.debug(true);//change 344565
+        System.debug(true);//change 344565
         return Site.changePassword(newPassword, verifyNewPassword, oldpassword);    
     }   
 }
