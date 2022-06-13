@@ -12,7 +12,7 @@ on:
 jobs:
     deploy-branch-to-production-org:
         runs-on: ubuntu-latest
-        if: ${{ github.actor != 'dependabot[bot]' }&& {{contains(steps.changed-files.outputs.modified_files, 'force-app/main/default/classes')} ||{contains(steps.changed-files.outputs.modified_files, 'force-app/main/default/labels')}}} 
+        if: ${{ github.actor != 'dependabot[bot]' }} 
         steps:
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
@@ -42,6 +42,7 @@ jobs:
                   echo ${{ secrets.SFDX_PRODUCTION_URL}} > ./SFDX_PRODUCTION_URL.txt
 
             - name: 'Create delta packages for new, modified or deleted metadata'
+              if:  contains(steps.changed-files.outputs.modified_files, 'force-app/main/default/classes') ||contains(steps.changed-files.outputs.modified_files,'force-app/main/default/labels' )
               run: | 
                   sfdx sgd:source:delta --to HEAD --from HEAD~1 --output .
             # Authenticate to org
