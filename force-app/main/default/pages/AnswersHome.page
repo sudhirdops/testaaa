@@ -6,5 +6,5 @@
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <apex:page action="{!URLFOR('/answers/answersHome.apexp')}">
-abcd
+abc
 </apex:page>
