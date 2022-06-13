@@ -1,13 +1,13 @@
 # Unique name for this workflow
-name: Deploy master branch to production org
+name: Deploy lwc changes 
 
 # Definition when the workflow should run
 on:
     push:
-      branches: [ master ]
+      branches: [ staging ]
       paths:
-        - 'force-app/**'
-       # - 'force-app/main/default/classes/**'
+       # - 'force-app/**'
+        - 'force-app/main/default/lwc/**'
   
             
 
@@ -25,13 +25,11 @@ jobs:
                   tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
                   ~/sfdx/bin/sfdx version
-
             # install SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
             - name: 'Installing sfdx git delta'
               run: | 
                   echo y | sfdx plugins:install sfdx-git-delta
                   sfdx plugins 
-
             # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v2
@@ -43,10 +41,8 @@ jobs:
               shell: bash
               run: |
                   echo ${{ secrets.SFDX_PRODUCTION_URL}} > ./SFDX_PRODUCTION_URL.txt
-
-            - name: 'Create delta packages for new, modified or deleted metadata'
-              run: | 
-                  sfdx sgd:source:delta --to HEAD --from HEAD~1 --output .
+            #- name: 'Create delta packages for new, modified or deleted metadata'
+             # run:  sfdx sgd:source:delta --to HEAD --from HEAD~1 --output .
             # Authenticate to org
             - name: 'Authenticate to Production Org'
               run: sfdx auth:sfdxurl:store -f sfdxurl.txt
