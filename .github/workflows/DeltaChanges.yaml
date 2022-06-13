@@ -43,7 +43,7 @@ jobs:
 
             - name: 'Create delta packages for new, modified or deleted metadata'
               run: | 
-                  sfdx sgd:source:delta --to HEAD --from HEAD~1 --output -d .
+                  sfdx sgd:source:delta --to HEAD --from HEAD~1 --output --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL) .
             # Authenticate to org
             - name: 'Authenticate to Production Org'
               run: sfdx auth:sfdxurl:store -f sfdxurl.txt
