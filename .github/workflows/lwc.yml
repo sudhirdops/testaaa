@@ -6,8 +6,8 @@ on:
     push:
       branches: [ staging ]
       paths:
-        - 'force-app/**'
-       # - 'force-app/main/default/lwc/**'
+       # - 'force-app/**'
+        - 'force-app/main/default/lwc/**'
   
             
 
