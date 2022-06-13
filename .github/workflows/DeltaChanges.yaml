@@ -6,7 +6,7 @@ on:
     push:
       branches: [ staging ]
       paths:
-         - 'force-app/main/default/classes/**'
+         - 'force-app/main/default/**'
 
 # Jobs to be executed
 jobs:
