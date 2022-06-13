@@ -43,7 +43,8 @@ jobs:
 
             - name: 'Create delta packages for new, modified or deleted metadata'
               run: | 
-                  sfdx sgd:source:delta --to HEAD --from HEAD~1 --output .
+                  if:  ${{contains(steps.changed-files.outputs.modified_files, 'force-app/main/default/classes') ||contains(steps.changed-files.outputs.modified_files,'force-app/main/default/labels' )}}
+                    sfdx sgd:source:delta --to HEAD --from HEAD~1 --output .
             # Authenticate to org
             - name: 'Authenticate to Production Org'
               run: sfdx auth:sfdxurl:store -f sfdxurl.txt
