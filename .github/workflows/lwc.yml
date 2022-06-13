@@ -49,7 +49,7 @@ jobs:
            # Deploy to Prod
             - name: 'Deploy Data to Production org'
              # this will deploy whole metadata in classes file
-              run:  sfdx force:source:deploy -u dopssudhir@salesforcedev.com --manifest manifest/package.xml
+              run:  sfdx force:source:deploy -u dopssudhir@salesforcedev.com --force-app/main/default/lwc/
              ## error in deployment
              #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --json
              #run:  sfdx force:mdapi:deploy -u dopssudhir@salesforcedev.com --deploydir=convert -w 30 
