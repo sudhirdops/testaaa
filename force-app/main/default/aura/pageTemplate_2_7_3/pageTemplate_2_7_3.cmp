@@ -31,4 +31,5 @@
             </lightning:layoutItem>
         </lightning:layout>
     </div>
+<div></div>
 </aura:component>
