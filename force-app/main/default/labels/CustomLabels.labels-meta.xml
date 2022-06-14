@@ -6,6 +6,14 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Test</shortDescription>
-        <value>Test12</value>
+        <value>Test123</value>
+    </labels>
+    <labels>
+        <fullName>SampleTest</fullName>
+        <categories>SampleTest</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SampleTest</shortDescription>
+        <value>SampleTest</value>
     </labels>
 </CustomLabels>
