@@ -6,8 +6,8 @@ on:
     push:
       branches: [ master ]
       paths:
-        - 'force-app/**'
-       # - 'force-app/main/default/classes/**'
+       #- 'force-app/**'
+        - 'force-app/main/default/lwc/**'
   
             
 
