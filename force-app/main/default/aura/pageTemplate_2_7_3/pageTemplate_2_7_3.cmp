@@ -30,5 +30,5 @@
                 {!v.right}
             </lightning:layoutItem>
         </lightning:layout>
-    </div>123
+    </div>1234
 </aura:component>
