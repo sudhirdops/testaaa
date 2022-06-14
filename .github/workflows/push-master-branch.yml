@@ -7,7 +7,7 @@ on:
       branches: [ master ]
       paths:
        #- 'force-app/**'
-        - 'force-app/main/default/lwc/**'
+        - 'force-app/main/default/aura/**'
   
             
 
