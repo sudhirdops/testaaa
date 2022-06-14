@@ -30,5 +30,5 @@
                 {!v.right}
             </lightning:layoutItem>
         </lightning:layout>
-    </div>abcd
+    </div>123
 </aura:component>
