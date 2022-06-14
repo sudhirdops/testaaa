@@ -5,7 +5,7 @@ const VIDEO = 'Video';
 const IMAGE = 'Image';
 
 /**
- * A Hero component that can display a Video or Image.
+ * A Hero component that can display a Video or Image or file
  */
 export default class Hero extends LightningElement {
     @api title;
