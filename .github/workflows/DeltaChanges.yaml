@@ -46,7 +46,8 @@ jobs:
                   sfdx sgd:source:delta --to HEAD --from HEAD~1 --output
             # Authenticate to org
             - name: 'Authenticate to Production Org'
-              run: sfdx auth:sfdxurl:store -f sfdxurl.txt
+              run: sfdx auth:sfdxurl:store -f sfdx_url
+             # run: sfdx auth:sfdxurl:store -f sfdxurl.txt
              
             - name: 'Deploy Delta MetaData to Production org'
               run: sfdx force:source:deploy -u dopssudhir@salesforcedev.com -x package/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml
